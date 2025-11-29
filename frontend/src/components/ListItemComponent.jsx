@@ -11,7 +11,7 @@ const ListItemComponent = ({ project }) => {
       <li key={project.id} className="card-project">
         <div className="photo-column">
           <img
-            src={project.authorImage}
+            src={project.image}
             alt="owner photo"
             className="owner-photo"
           />
