@@ -11,19 +11,19 @@ const ListItemComponent = ({ project }) => {
       <li key={project.id} className="card-project">
         <div className="photo-column">
           <img
-            src={project.image}
+            src={project.authorImage}
             alt="owner photo"
             className="owner-photo"
           />
-          <p className="job-title">{project.jobTitle}</p>
-          <p className="owner-name">{project.owner} </p>
+          <p className="job-title">{project.job}</p>
+          <p className="owner-name">{project.author} </p>
         </div>
 
         <div className="input-column">
           <div className="title-line__container">
             <div class="line-1"></div><h3>Personal Project Card</h3><div class="line-2"></div>
           </div>
-          <p className="nameProj">{project.nameProj}</p>
+          <p className="nameProj">{project.project}</p>
           <p className="slogan">{project.slogan} </p>
           <p className="description">{project.description} </p>
           <div className="techs-icons-container">

@@ -8,10 +8,12 @@ import { getProjectById } from "../services/api";
 import "../styles/projectpreview.css";
 import "../styles/yourproject.css";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 
-const YourProjectPage = (id) => {
+const YourProjectPage = () => {
   const [project, setProject] = useState([]);
+  const { id } = useParams();
   useEffect(() => {
     getProjectById(id).then(data => {
       setProject(data);

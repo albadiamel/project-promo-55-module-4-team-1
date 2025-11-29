@@ -9,20 +9,20 @@ const ProjectPreview = ({ project }) => {
     <div className="project-preview__container">
       <img
         className="project-photo"
-        src={project.projectImage}
+        src={project?.image}
         alt="Imagen del proyecto"
       />
       <div className="project__card-preview">
         <div className="photo-column">
           <img
             className="owner-photo"
-            src={project.authorImage}
+            src={project?.authorImage}
             alt="Imagen de la autora"
           ></img>
           <p className="job-title">
-            {project.jobTitle || "Full Stack Developer"}
+            {project?.job || "Full Stack Developer"}
           </p>
-          <p className="owner-name">{project.owner || "Emmelie Björklund"}</p>
+          <p className="owner-name">{project?.author || "Emmelie Björklund"}</p>
         </div>
 
         <div className="input-column">
@@ -31,18 +31,18 @@ const ProjectPreview = ({ project }) => {
             <h3>Personal Project Card</h3>
             <div className="line-2"></div>
           </div>
-          <p className="nameProj">{project.nameProj || "Elegant Workspace"}</p>
-          <p className="slogan">{project.slogan || "Diseños Exclusivos"}</p>
+          <p className="nameProj">{project?.project || "Elegant Workspace"}</p>
+          <p className="slogan">{project?.slogan || "Diseños Exclusivos"}</p>
           <p className="description">
-            {project.description || "Descripción del proyecto"}
+            {project?.description || "Descripción del proyecto"}
           </p>
           <div className="techs-icons-container">
-            <p className="techs">{project.techs || "React JS - HTML - CSS"}</p>
+            <p className="techs">{project?.techs || "React JS - HTML - CSS"}</p>
             <div className="icons">
-              <a className="repo" href={project.repo}>
+              <a className="repo" href={project?.repo}>
                 <img src={browserIcon} />
               </a>
-              <a className="repo" href={project.demo}>
+              <a className="repo" href={project?.demo}>
                 <img src={githubIcon} />
               </a>
             </div>

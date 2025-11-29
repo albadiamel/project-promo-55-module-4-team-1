@@ -2,6 +2,7 @@ export const getProjects = () => {
     return fetch("http://localhost:3000/projects")
         .then((response) => response.json())
         .then((data) => {
+            console.log("datos de la API", data);
             const cleanData = data.map((item) => {
                 return {
                     id: item.id,
@@ -11,7 +12,11 @@ export const getProjects = () => {
                     slogan: item.slogan,
                     demo: item.demo,
                     repo: item.repo,
-                    image: item.projectImage
+                    image: item.projectImage,
+                    idAuthor: item.id_author,
+                    author: item.owner,
+                    job: item.jobTitle,
+                    authorImage: item.authorImage
                 };
             });
 
@@ -35,7 +40,11 @@ export const getProjectById = (id) => {
                     slogan: item.slogan,
                     demo: item.demo,
                     repo: item.repo,
-                    image: item.projectImage
+                    image: item.projectImage,
+                    idAuthor: item.id_author,
+                    author: item.owner,
+                    job: item.jobTitle,
+                    authorImage: item.authorImage
                 };
             });
 
