@@ -3,6 +3,10 @@ const mysql = require("../database/mysql-pool");
 const getProjectByIdController = async (req, res) => {
     try {
         const { id } = req.params;
+        if (!id || isNaN(id)) {
+            res.status(400).send("Formato incorrecto")
+        };
+
         const query = "SELECT * FROM projects WHERE id = ?";
 
         const connection = await mysql.getConnection();

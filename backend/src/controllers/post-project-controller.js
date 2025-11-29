@@ -10,8 +10,8 @@ const addProjectsController = async (req, res) => {
         
         const queryAuthor = "INSERT INTO authors (owner, jobTitle, authorImage) VALUES ( ?, ?, ? ) ";
 
-        const connectionAuthor = await mysql.getConnection();
-        const dataAuthor = await connectionAuthor.query(queryAuthor, [owner, jobTitle, authorImage]);
+        const connection = await mysql.getConnection();
+        const dataAuthor = await connection.query(queryAuthor, [owner, jobTitle, authorImage]);
 
         const { nameProj, description, techs, slogan, demo, repo, projectImage } = req.body;
 
@@ -20,8 +20,7 @@ const addProjectsController = async (req, res) => {
         }
         const query = "INSERT INTO projects (nameProj, description, techs, slogan, demo, repo, projectImage, fk_id_author) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?) ";
 
-        const connection = await mysql.getConnection();
-        await connection.query(query, [nameProj, description, techs, slogan, demo, repo, projectImage, dataAuthor[0].insertId]);
+        await connection.query(query, [nameProj, description, techs, slogan, demo, repo, projectImage, dataAuthor[0].insertId])
         await connection.end()
 
 
