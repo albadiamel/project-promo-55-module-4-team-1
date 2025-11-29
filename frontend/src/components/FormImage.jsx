@@ -20,20 +20,20 @@ const FormImage = ({ setFormData, errors }) => {
   return (
     <div className="form__images">
       <div>
-        <label htmlFor="projectImage" className="project-button">
+        <label htmlFor="image" className="project-button">
           {" "}
           Subir foto del proyecto
         </label>
-        {errors.projectImage && (
+        {errors.image && (
           <p style={{ color: "red", marginTop: "5px" }}>
-            {errors.projectImage}
+            {errors.image}
           </p>
         )}
         <input
           type="file"
           accept="image/*"
-          id="projectImage"
-          onChange={(e) => handleImageUpload(e, "projectImage")}
+          id="image"
+          onChange={(e) => handleImageUpload(e, "image")}
         />
       </div>
 

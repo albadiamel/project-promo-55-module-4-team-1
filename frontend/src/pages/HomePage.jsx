@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { addProjects } from "../services/api"
 import Form from "../components/Form";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -10,17 +12,39 @@ import "../index.css";
 
 const HomePage = () => {
   const [formData, setFormData] = useState({
-    nameProj: "",
+    project: "",
     slogan: "",
     repo: "",
     demo: "",
     techs: "",
     description: "",
-    owner: "",
-    jobTitle: "",
-    projectImage: defaultProject,
+    author: "",
+    job: "",
+    image: defaultProject,
     authorImage: defaultAuthor,
   });
+
+  const navigate = useNavigate();
+
+    const createProjects = () => {
+    
+    addProjects({
+      nameProj: formData.project,
+      description: formData.description,
+      techs: formData.techs,
+      slogan: formData.slogan,
+      demo: formData.demo,
+      repo: formData.repo,
+      projectImage: formData.image,
+      owner: formData.author,
+      jobTitle: formData.job,
+      authorImage: formData.authorImage
+
+    }).then(data => {
+      setFormData(data);
+      navigate("/project-list");
+      });
+  };
 
   return (
     <>
@@ -30,7 +54,7 @@ const HomePage = () => {
       </div>
       <div className="data-container">
         <ProjectPreview project={formData} />
-        <Form formData={formData} setFormData={setFormData} />
+        <Form formData={formData} addProjects={createProjects} setFormData={setFormData} />
       </div>
       <Footer />
     </>

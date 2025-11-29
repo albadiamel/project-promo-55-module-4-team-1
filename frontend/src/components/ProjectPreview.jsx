@@ -2,6 +2,7 @@ import "react";
 import "../styles/projectpreview.css";
 import browserIcon from "../images/browser.png";
 import githubIcon from "../images/github.png";
+import defaultProject from "../images/project.jpg";
 import PropTypes from "prop-types";
 
 const ProjectPreview = ({ project }) => {
@@ -9,7 +10,7 @@ const ProjectPreview = ({ project }) => {
     <div className="project-preview__container">
       <img
         className="project-photo"
-        src={project?.image}
+        src={project?.image || defaultProject}
         alt="Imagen del proyecto"
       />
       <div className="project__card-preview">

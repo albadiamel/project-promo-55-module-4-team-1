@@ -1,15 +1,13 @@
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import FormTextInputs from "./FormTextInputs";
 import FormImage from "./FormImage";
 import Reset from "../components/Reset";
-import ls from "../services/localStorage";
+// import ls from "../services/localStorage";
 import defaultProject from "../images/project.jpg";
 import defaultAuthor from "../images/author.png";
 import PropTypes from "prop-types";
 
-const Form = ({ formData, setFormData }) => {
-  const navigate = useNavigate();
+const Form = ({ formData, setFormData, addProjects }) => {
   const [errors, setErrors] = useState({});
 
   const [globalError, setGlobalError] = useState("");
@@ -17,20 +15,20 @@ const Form = ({ formData, setFormData }) => {
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.nameProj.trim())
-      newErrors.nameProj = "Este campo es obligatorio";
+    if (!formData.project.trim())
+      newErrors.project = "Este campo es obligatorio";
     if (!formData.slogan.trim()) newErrors.slogan = "Este campo es obligatorio";
     if (!formData.repo.trim()) newErrors.repo = "Este campo es obligatorio";
     if (!formData.demo.trim()) newErrors.demo = "Este campo es obligatorio";
     if (!formData.techs.trim()) newErrors.techs = "Este campo es obligatorio";
     if (!formData.description.trim())
       newErrors.description = "Este campo es obligatorio";
-    if (!formData.owner.trim()) newErrors.owner = "Este campo es obligatorio";
-    if (!formData.jobTitle.trim())
-      newErrors.jobTitle = "Este campo es obligatorio";
+    if (!formData.author.trim()) newErrors.author = "Este campo es obligatorio";
+    if (!formData.job.trim())
+      newErrors.job = "Este campo es obligatorio";
 
-    if (formData.projectImage === defaultProject)
-      newErrors.projectImage = "Sube una imagen del proyecto";
+    if (formData.image === defaultProject)
+      newErrors.image = "Sube una imagen del proyecto";
     if (formData.authorImage === defaultAuthor)
       newErrors.authorImage = "Sube una imagen de la autora";
 
@@ -46,23 +44,17 @@ const Form = ({ formData, setFormData }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleCreateProject = () => {
+    const handleCreateProject = () => {
     const isValid = validateForm();
     if (!isValid) return;
-
-    const newProject = {
-      ...formData,
-      id: (Math.floor(Math.random() * (100 - 6 + 1)) + 6).toString(),
+    addProjects();
     };
 
-    const storedProjects = ls.get("projects", []);
-    const updatedProjects = [...storedProjects, newProject];
-    ls.set("projects", updatedProjects);
 
-    navigate("/project-list");
-  };
+    // const storedProjects = ls.get("projects", []);
+    // const updatedProjects = [...storedProjects, newProject];
+    // ls.set("projects", updatedProjects);
 
-  console.log(formData);
   return (
     <div className="form__inputs">
       <FormTextInputs
@@ -89,16 +81,16 @@ const Form = ({ formData, setFormData }) => {
 
 Form.propTypes = {
   formData: PropTypes.shape({
-    nameProj: PropTypes.string.isRequired,
+    project: PropTypes.string.isRequired,
     slogan: PropTypes.string.isRequired,
     repo: PropTypes.string.isRequired,
     demo: PropTypes.string.isRequired,
     techs: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     authorImage: PropTypes.string.isRequired,
-    owner: PropTypes.string.isRequired,
-    jobTitle: PropTypes.string,
-    projectImage: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    job: PropTypes.string,
+    image: PropTypes.string.isRequired,
   }).isRequired,
   setFormData: PropTypes.func.isRequired,
 };
