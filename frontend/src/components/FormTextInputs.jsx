@@ -2,12 +2,10 @@ import "react";
 import PropTypes from "prop-types";
 import "../styles/form-text.css";
 
-const FormTextInputs = ({ setFormData, formData, errors }) => {
+const FormTextInputs = ({ updateFormData, formData, errors }) => {
   const handleChangeInput = (ev) => {
-    setFormData((currentState) => ({
-      ...currentState,
-      [ev.target.name]: ev.target.value,
-    }));
+    console.log('Input changed:', ev.target.name, ev.target.value);
+    updateFormData(ev.target.name, ev.target.value)
   };
 
   return (
@@ -17,78 +15,73 @@ const FormTextInputs = ({ setFormData, formData, errors }) => {
         <h3>Cuéntanos sobre el proyecto</h3>
 
         <input
-          name="project"
-          id="project"
-          placeholder={
-            errors.project ? errors.project : "Nombre del proyecto"
-          }
-          value={formData.project}
+          name="nameProj"
+          id="nameProj"
+          placeholder="Nombre del proyecto"
+          value={formData.nameProj}
           onChange={handleChangeInput}
-          className={errors.project ? "input-error-placeholder" : ""}
         />
+        <p className="input-error-placeholder">{errors.nameProj}</p>
         <input
           name="slogan"
           id="slogan"
-          placeholder={errors.slogan ? errors.slogan : "Slogan"}
+          placeholder="Slogan"
           value={formData.slogan}
           onChange={handleChangeInput}
-          className={errors.project ? "input-error-placeholder" : ""}
         />
         <div className="repo-demo">
             <input
             name="repo"
             id="repo"
-            placeholder={errors.repo ? errors.repo : "Repositorio"}
+            placeholder="Repositorio"
             value={formData.repo}
             onChange={handleChangeInput}
-            className={`repo ${errors.project ? "input-error-placeholder" : ""}`}
+            className={`repo ${errors.repo ? "input-error-placeholder" : ""}`}
           />
           <input
             name="demo"
             id="demo"
-            placeholder={errors.demo ? errors.demo : "Demo"}
+            placeholder="Demo"
             value={formData.demo}
             onChange={handleChangeInput}
-            className={`demo ${errors.project ? "input-error-placeholder" : ""}`}
           />
         </div>
         <input
           name="techs"
           id="techs"
-          placeholder={errors.techs ? errors.techs : "Tecnologías"}
+          placeholder="Tecnologías"
           value={formData.techs}
           onChange={handleChangeInput}
-          className={errors.project ? "input-error-placeholder" : ""}
         />
+        <p className="input-error-placeholder">{errors.techs}</p>
         <textarea
           name="description"
           id="description"
-          placeholder={errors.description ? errors.description : "Descripción"}
+          placeholder="Descripción"
           value={formData.description}
           onChange={handleChangeInput}
-          className={errors.project ? "input-error-placeholder" : ""}
         />
+        <p className="input-error-placeholder">{errors.description}</p>
       </div>
 
       <div className="owner__form">
         <h3>Cuéntanos sobre la autora</h3>
 
         <input
-          name="author"
-          id="author"
-          placeholder={errors.author ? errors.author : "Nombre"}
-          value={formData.author}
+          name="owner"
+          id="owner"
+          placeholder="Nombre"
+          value={formData.owner}
           onChange={handleChangeInput}
-          className={errors.project ? "input-error-placeholder" : ""}
         />
+        <p className="input-error-placeholder">{errors.owner}</p>
         <input
-          name="job"
-          id="job"
-          placeholder={errors.job ? errors.job : "Trabajo"}
-          value={formData.job}
-          onChange={handleChangeInput}
-          className={errors.project ? "input-error-placeholder" : ""}
-        />
+          name="jobTitle"
+          id="jobTitle"
+          placeholder="Trabajo"
+          value={formData.jobTitle}
+          onChange={handleChangeInput}        />
+        <p className="input-error-placeholder">{errors.jobTitle}</p>
       </div>
     </>
   );
@@ -96,27 +89,27 @@ const FormTextInputs = ({ setFormData, formData, errors }) => {
 
 FormTextInputs.propTypes = {
   formData: PropTypes.shape({
-    project: PropTypes.string.isRequired,
+    nameProj: PropTypes.string.isRequired,
     slogan: PropTypes.string.isRequired,
     repo: PropTypes.string.isRequired,
     demo: PropTypes.string.isRequired,
     techs: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     authorImage: PropTypes.string,
-    author: PropTypes.string.isRequired,
-    job: PropTypes.string,
-    image: PropTypes.string,
+    owner: PropTypes.string.isRequired,
+    jobTitle: PropTypes.string,
+    projectImage: PropTypes.string,
   }).isRequired,
-  setFormData: PropTypes.func.isRequired,
+    updateFormData: PropTypes.func.isRequired,  
   errors: PropTypes.shape({
-    project: PropTypes.string,
+    nameProj: PropTypes.string,
     slogan: PropTypes.string,
     repo: PropTypes.string,
     demo: PropTypes.string,
     techs: PropTypes.string,
     description: PropTypes.string,
-    author: PropTypes.string,
-    job: PropTypes.string,
+    owner: PropTypes.string,
+    jobTitle: PropTypes.string,
   }).isRequired,
 };
 

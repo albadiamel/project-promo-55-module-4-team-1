@@ -25,8 +25,7 @@ const addProjectsController = async (req, res) => {
 
 
         res.status(201).json({message: "Proyecto creado"});
-    } catch (error) {
-        console.log(error);
+    } catch {
         res.status(400).send("Algo ha ido mal");
     }
 };

@@ -2,29 +2,8 @@ export const getProjects = () => {
     return fetch("http://localhost:3000/projects")
         .then((response) => response.json())
         .then((data) => {
-            console.log("datos de la API", data);
-            const cleanData = data.map((item) => {
-                return {
-                    id: item.id,
-                    project: item.nameProj,
-                    description: item.description,
-                    techs: item.techs,
-                    slogan: item.slogan,
-                    demo: item.demo,
-                    repo: item.repo,
-                    image: item.projectImage,
-                    idAuthor: item.id_author,
-                    author: item.owner,
-                    job: item.jobTitle,
-                    authorImage: item.authorImage
-                };
-            });
-
-            return cleanData;
+            return data;
         })
-        .catch((error) => {
-            console.log(error);
-        });
 };
 
 export const getProjectById = (id) => {
@@ -34,25 +13,22 @@ export const getProjectById = (id) => {
             const cleanData = data.map((item) => {
                 return {
                     id: item.id,
-                    project: item.nameProj,
+                    nameProj: item.nameProj,
                     description: item.description,
                     techs: item.techs,
                     slogan: item.slogan,
                     demo: item.demo,
                     repo: item.repo,
-                    image: item.projectImage,
-                    idAuthor: item.id_author,
-                    author: item.owner,
-                    job: item.jobTitle,
+                    projectImage: item.projectImage,
+                    id_author: item.id_author,
+                    owner: item.owner,
+                    jobTitle: item.jobTitle,
                     authorImage: item.authorImage
                 };
             });
 
             return cleanData[0];
         })
-        .catch((error) => {
-            console.log(error);
-        });
 };
 
 export const addProjects = (data) => {
@@ -67,7 +43,4 @@ export const addProjects = (data) => {
         .then(() => {
             return;
         })
-        .catch((error) => {
-            console.log(error);
-        });
 };

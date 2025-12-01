@@ -12,35 +12,30 @@ import "../index.css";
 
 const HomePage = () => {
   const [formData, setFormData] = useState({
-    project: "",
+    nameProj: "",
     slogan: "",
     repo: "",
     demo: "",
     techs: "",
     description: "",
-    author: "",
-    job: "",
-    image: defaultProject,
+    owner: "",
+    jobTitle: "",
+    projectImage: defaultProject,
     authorImage: defaultAuthor,
   });
 
   const navigate = useNavigate();
 
+  const updateFormData = (key, value) => {
+    console.log('Updating form data:', key, value)
+      setFormData((currentState) => ({
+    ...currentState,
+    [key]: value,
+    }));
+  }
     const createProjects = () => {
-    
-    addProjects({
-      nameProj: formData.project,
-      description: formData.description,
-      techs: formData.techs,
-      slogan: formData.slogan,
-      demo: formData.demo,
-      repo: formData.repo,
-      projectImage: formData.image,
-      owner: formData.author,
-      jobTitle: formData.job,
-      authorImage: formData.authorImage
-
-    }).then(data => {
+    console.log(formData);
+    addProjects(formData).then(data => {
       setFormData(data);
       navigate("/project-list");
       });
@@ -54,7 +49,7 @@ const HomePage = () => {
       </div>
       <div className="data-container">
         <ProjectPreview project={formData} />
-        <Form formData={formData} addProjects={createProjects} setFormData={setFormData} />
+        <Form formData={formData} addProjects={createProjects} updateFormData={updateFormData} />
       </div>
       <Footer />
     </>

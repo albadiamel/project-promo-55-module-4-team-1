@@ -3,9 +3,9 @@ import defaultProject from "../images/project.jpg";
 import defaultAuthor from "../images/author.png";
 import PropTypes from "prop-types";
 
-const Reset = ({ setFormData }) => {
+const Reset = ({ updateFormData }) => {
   const handleChangeReset = () => {
-    setFormData({
+    updateFormData({
       nameProj: "",
       slogan: "",
       repo: "",

@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import "../styles/form-image.css";
 
-const FormImage = ({ setFormData, errors }) => {
+const FormImage = ({ updateFormData, errors }) => {
   const handleImageUpload = (ev, type) => {
     const file = ev.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setFormData((prev) => ({
+        updateFormData((prev) => ({
           ...prev,
           [type]: reader.result,
         }));
@@ -20,20 +20,20 @@ const FormImage = ({ setFormData, errors }) => {
   return (
     <div className="form__images">
       <div>
-        <label htmlFor="image" className="project-button">
+        <label htmlFor="projectImage" className="project-button">
           {" "}
           Subir foto del proyecto
         </label>
-        {errors.image && (
+        {errors.projectImage && (
           <p style={{ color: "red", marginTop: "5px" }}>
-            {errors.image}
+            {errors.projectImage}
           </p>
         )}
         <input
           type="file"
           accept="image/*"
-          id="image"
-          onChange={(e) => handleImageUpload(e, "image")}
+          id="projectImage"
+          onChange={(e) => handleImageUpload(e, "projectImage")}
         />
       </div>
 

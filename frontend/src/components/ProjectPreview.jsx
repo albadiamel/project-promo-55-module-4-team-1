@@ -1,16 +1,16 @@
 import "react";
-import "../styles/projectpreview.css";
 import browserIcon from "../images/browser.png";
 import githubIcon from "../images/github.png";
 import defaultProject from "../images/project.jpg";
 import PropTypes from "prop-types";
+import "../styles/project-preview.css";
 
 const ProjectPreview = ({ project }) => {
   return (
     <div className="project-preview__container">
       <img
         className="project-photo"
-        src={project?.image || defaultProject}
+        src={project?.projectImage || defaultProject}
         alt="Imagen del proyecto"
       />
       <div className="project__card-preview">
@@ -21,9 +21,9 @@ const ProjectPreview = ({ project }) => {
             alt="Imagen de la autora"
           ></img>
           <p className="job-title">
-            {project?.job || "Full Stack Developer"}
+            {project?.jobTitle || "Full Stack Developer"}
           </p>
-          <p className="owner-name">{project?.author || "Emmelie Björklund"}</p>
+          <p className="owner-name">{project?.owner || "Emmelie Björklund"}</p>
         </div>
 
         <div className="input-column">
@@ -32,7 +32,7 @@ const ProjectPreview = ({ project }) => {
             <h3>Personal Project Card</h3>
             <div className="line-2"></div>
           </div>
-          <p className="nameProj">{project?.project || "Elegant Workspace"}</p>
+          <p className="nameProj">{project?.nameProj || "Elegant Workspace"}</p>
           <p className="slogan">{project?.slogan || "Diseños Exclusivos"}</p>
           <p className="description">
             {project?.description || "Descripción del proyecto"}

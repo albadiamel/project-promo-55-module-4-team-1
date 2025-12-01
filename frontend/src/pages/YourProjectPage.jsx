@@ -1,14 +1,13 @@
-import "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getProjectById } from "../services/api";
 import ProjectPreview from "../components/ProjectPreview";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Buttons from "../components/Buttons";
 import PropTypes from "prop-types";
-import { getProjectById } from "../services/api";
-import "../styles/projectpreview.css";
-import "../styles/yourproject.css";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import "../styles/project-preview.css";
+import "../styles/your-project.css";
 
 
 const YourProjectPage = () => {

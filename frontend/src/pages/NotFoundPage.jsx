@@ -1,8 +1,7 @@
-import React from "react";
+import "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Buttons from "../components/Buttons";
-import { Link } from "react-router-dom";
 import "../styles/not-found.css";
 import "../index.css";
 

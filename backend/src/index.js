@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const mysql = require("./database/mysql-pool");
 const { getProjectsController, getProjectByIdController, addProjectsController } = require("./controllers");
 const app = express();
 const port = 3000;

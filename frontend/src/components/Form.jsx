@@ -1,13 +1,10 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import FormTextInputs from "./FormTextInputs";
 import FormImage from "./FormImage";
 import Reset from "../components/Reset";
-// import ls from "../services/localStorage";
-import defaultProject from "../images/project.jpg";
-import defaultAuthor from "../images/author.png";
-import PropTypes from "prop-types";
 
-const Form = ({ formData, setFormData, addProjects }) => {
+const Form = ({ formData, updateFormData, addProjects }) => {
   const [errors, setErrors] = useState({});
 
   const [globalError, setGlobalError] = useState("");
@@ -15,25 +12,15 @@ const Form = ({ formData, setFormData, addProjects }) => {
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.project.trim())
-      newErrors.project = "Este campo es obligatorio";
-    if (!formData.slogan.trim()) newErrors.slogan = "Este campo es obligatorio";
-    if (!formData.repo.trim()) newErrors.repo = "Este campo es obligatorio";
-    if (!formData.demo.trim()) newErrors.demo = "Este campo es obligatorio";
-    if (!formData.techs.trim()) newErrors.techs = "Este campo es obligatorio";
-    if (!formData.description.trim())
+    if (!formData.nameProj)
+      newErrors.nameProj = "Este campo es obligatorio";
+    if (!formData.techs) newErrors.techs = "Este campo es obligatorio";
+    if (!formData.description)
       newErrors.description = "Este campo es obligatorio";
-    if (!formData.author.trim()) newErrors.author = "Este campo es obligatorio";
-    if (!formData.job.trim())
-      newErrors.job = "Este campo es obligatorio";
-
-    if (formData.image === defaultProject)
-      newErrors.image = "Sube una imagen del proyecto";
-    if (formData.authorImage === defaultAuthor)
-      newErrors.authorImage = "Sube una imagen de la autora";
+    if (!formData.owner) newErrors.owner = "Este campo es obligatorio";
+    if (!formData.jobTitle) newErrors.jobTitle = "Este campo es obligatorio";
 
     setErrors(newErrors);
-    console.log(errors);
 
     if (Object.keys(newErrors).length > 0) {
       setGlobalError("Por favor, completa los campos");
@@ -46,8 +33,7 @@ const Form = ({ formData, setFormData, addProjects }) => {
 
     const handleCreateProject = () => {
     const isValid = validateForm();
-    if (!isValid) return;
-    addProjects();
+    if (isValid) addProjects();
     };
 
 
@@ -59,16 +45,16 @@ const Form = ({ formData, setFormData, addProjects }) => {
     <div className="form__inputs">
       <FormTextInputs
         formData={formData}
-        setFormData={setFormData}
+        updateFormData={updateFormData}
         errors={errors}
       />
       <FormImage
         formData={formData}
-        setFormData={setFormData}
+        updateFormData={updateFormData}
         errors={errors}
       />
       <div className="button-container">
-        <Reset setFormData={setFormData} />
+        <Reset updateFormData={updateFormData} />
         <button onClick={handleCreateProject}>Crea tu proyecto</button>
       </div>
 

@@ -53,7 +53,7 @@ textarea::placeholder {
   font-family: "Montserrat";
 }
 
-.input-error-placeholder::placeholder {
+.input-error-placeholder {
   color: red;
 }
 

@@ -4,7 +4,6 @@ import github from "../images/github.png";
 import PropTypes from "prop-types";
 
 const ListItemComponent = ({ project }) => {
-  console.log("project:", project);
 
   return (
     <div className="list-item__container">
@@ -15,15 +14,15 @@ const ListItemComponent = ({ project }) => {
             alt="owner photo"
             className="owner-photo"
           />
-          <p className="job-title">{project.job}</p>
-          <p className="owner-name">{project.author} </p>
+          <p className="job-title">{project.jobTitle}</p>
+          <p className="owner-name">{project.owner} </p>
         </div>
 
         <div className="input-column">
           <div className="title-line__container">
             <div class="line-1"></div><h3>Personal Project Card</h3><div class="line-2"></div>
           </div>
-          <p className="nameProj">{project.project}</p>
+          <p className="nameProj">{project.nameProj}</p>
           <p className="slogan">{project.slogan} </p>
           <p className="description">{project.description} </p>
           <div className="techs-icons-container">
