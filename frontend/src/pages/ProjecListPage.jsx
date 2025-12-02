@@ -23,7 +23,7 @@ const ProjecListPage = () => {
     <>
       <Header />
       <div className="button-container">
-        <Buttons to="/">Nuevo proyecto</Buttons>
+        <Buttons to="/" text="Nuevo proyecto"/>
       </div>
       <ListComponent projects={projects}/>
       <Footer />

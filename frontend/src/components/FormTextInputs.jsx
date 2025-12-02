@@ -4,7 +4,6 @@ import "../styles/form-text.css";
 
 const FormTextInputs = ({ updateFormData, formData, errors }) => {
   const handleChangeInput = (ev) => {
-    console.log('Input changed:', ev.target.name, ev.target.value);
     updateFormData(ev.target.name, ev.target.value)
   };
 

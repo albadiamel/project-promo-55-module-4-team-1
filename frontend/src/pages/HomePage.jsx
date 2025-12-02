@@ -27,14 +27,12 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   const updateFormData = (key, value) => {
-    console.log('Updating form data:', key, value)
-      setFormData((currentState) => ({
-    ...currentState,
-    [key]: value,
+    setFormData((currentState) => ({
+      ...currentState,
+      [key]: value,
     }));
   }
     const createProjects = () => {
-    console.log(formData);
     addProjects(formData).then(data => {
       setFormData(data);
       navigate("/project-list");
@@ -45,7 +43,7 @@ const HomePage = () => {
     <>
       <Header />
       <div className="button-container">
-        <Buttons to="/project-list">Ver Proyectos</Buttons>
+        <Buttons to="/project-list" text="Ver Proyectos"/>
       </div>
       <div className="data-container">
         <ProjectPreview project={formData} />

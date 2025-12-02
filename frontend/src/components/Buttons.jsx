@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "../styles/buttons.css";
 
-const Buttons = ({ to, children }) => {
+const Buttons = ({ to, text }) => {
   return (
     <>
       <Link to={to}>
-        <button>{children}</button>
+        <button>{text}</button>
       </Link>
     </>
   );
@@ -15,7 +15,7 @@ const Buttons = ({ to, children }) => {
 
 Buttons.propTypes = {
   to: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 export default Buttons;

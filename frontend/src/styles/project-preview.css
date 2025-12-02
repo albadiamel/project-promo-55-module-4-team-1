@@ -3,6 +3,9 @@
     flex-direction: column;
     align-items: center; 
     position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .project__card-preview {
@@ -15,19 +18,23 @@
     padding: 20px;
     min-height: 270px;
     max-height: 300px;
-    width: 450px;
+    width: 100%;
+    max-width: 450px;
     border-radius: 30px;
     background-color: white;
-    margin: 60px;
+    margin: 60px 16px;
     align-items: center;
     position: absolute;
     bottom: -200px;
     font-family: "Poppins";
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 .icons img {
     height: 25px;
+    width: 25px;
+    object-fit: contain;
     border-radius: 50%;
     box-shadow: 0 0 15px 5px #bcd1d8;
 }
@@ -42,14 +49,17 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     margin-top: auto;
 }
 
 .project-photo {
     height: 500px;
-    width: 500px;
-    object-fit: cover;
-    margin: 20px;
+    width: 100%;
+    max-width: 500px;
+    object-fit: contain;
+    margin: 20px auto;
+    display: block;
 }
 
 .owner-photo {
@@ -68,6 +78,7 @@
 .input-column {
     flex: 1;
     margin-left: 15px;
+    min-width: 0;
 }
 
 .photo-column {
@@ -111,7 +122,7 @@
 }
 
 .techs {
-    margin-right: 30px;
+    margin-right: 10px;
     font-size: 14px;
     color: #505050;
 }
@@ -125,22 +136,114 @@
     display: flex;
     align-items: center;
     text-align: center;
-    gap: 3px; 
+    gap: 3px;
+    white-space: nowrap;
 }
+
+.title-line__container h3 {
+    flex-shrink: 0;
+}
+
 .line-1 {
     background: linear-gradient(to left, black, white);
     height: 3px;
     width: 35px;
+    flex-shrink: 1;
 }
+
 .line-2 {
     background: linear-gradient(to right, black, white);
     height: 3px;
     width: 35px;
+    flex-shrink: 1;
 }
 
-@media (min-width: 768px){
+/* MÓVIL */
+@media (max-width: 420px) {
+    .project-preview__container {
+        padding: 0 8px;
+    }
+
+    .project__card-preview {
+        width: calc(100% - 16px);
+        padding: 15px;
+        margin: 40px 8px;
+        min-height: 240px;
+        bottom: -180px;
+    }
+
+    .project-photo {
+        height: 300px;
+        width: calc(100% - 16px);
+        margin: 10px 8px;
+    }
+
+    .photo-column {
+        width: 100px;
+    }
+
+    .owner-photo {
+        height: 80px;
+        width: 80px;
+    }
+
+    .input-column {
+        margin-left: 10px;
+    }
+
+    .nameProj {
+        margin-top: 15px;
+        font-size: 16px;
+    }
+
+    .slogan {
+        font-size: 13px;
+    }
+
+    .description {
+        font-size: 11px;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+    }
+
+    .techs {
+        font-size: 11px;
+        margin-right: 5px;
+    }
+
+    .techs-icons-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .icons img {
+        height: 20px;
+        width: 20px;
+    }
+
+    .title-line__container h3 {
+        font-size: 11px;
+    }
+
+    .line-1, .line-2 {
+        width: 20px;
+        height: 2px;
+    }
+
+    .job-title {
+        font-size: 11px;
+    }
+
+    .owner-name {
+        font-size: 13px;
+    }
+}
+
+/* TABLET */
+@media (min-width: 768px) {
     .project__card-preview {
         bottom: 0;
-        top: 400px;
+        top: 320px;
     }
 }

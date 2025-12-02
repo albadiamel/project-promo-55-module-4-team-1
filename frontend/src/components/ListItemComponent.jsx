@@ -29,10 +29,10 @@ const ListItemComponent = ({ project }) => {
             <p className="techs">{project.techs}</p>
             <div className="icons">
             <a className="repo" href={project.demo}>
-              <img src={browser} alt="web site"/>
+              <img src={github} alt="web site"/>
             </a>
             <a className="repo" href={project.repo}>
-              <img src={github} alt="repo site"/>
+              <img src={browser} alt="repo site"/>
             </a>
           </div>
           </div>

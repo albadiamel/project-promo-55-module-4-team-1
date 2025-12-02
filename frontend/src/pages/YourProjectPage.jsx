@@ -23,7 +23,7 @@ const YourProjectPage = () => {
     <>
       <Header />
       <div className="button-container">
-        <Buttons to="/project-list">Ver Proyectos</Buttons>
+        <Buttons to="/project-list" text="Ver Proyectos"/>
       </div>
       <div className="yourproject-container">
         <ProjectPreview project={project} />

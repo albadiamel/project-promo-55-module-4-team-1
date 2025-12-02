@@ -41,10 +41,10 @@ const ProjectPreview = ({ project }) => {
             <p className="techs">{project?.techs || "React JS - HTML - CSS"}</p>
             <div className="icons">
               <a className="repo" href={project?.repo}>
-                <img src={browserIcon} />
+                <img src={githubIcon} />
               </a>
               <a className="repo" href={project?.demo}>
-                <img src={githubIcon} />
+                <img src={browserIcon} />
               </a>
             </div>
           </div>
