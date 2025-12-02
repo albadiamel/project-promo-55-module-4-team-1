@@ -12,10 +12,20 @@ import "../styles/your-project.css";
 
 const YourProjectPage = () => {
   const [project, setProject] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   const { id } = useParams();
   useEffect(() => {
+    setIsLoading(true);
+    
     getProjectById(id).then(data => {
       setProject(data);
+      setIsLoading(false);
+    })
+
+    .catch (() => {
+      window.alert("Algo ha ido mal");
+      setIsLoading(false);
     })
   }, []);
 
@@ -25,6 +35,9 @@ const YourProjectPage = () => {
       <div className="button-container">
         <Buttons to="/project-list" text="Ver Proyectos"/>
       </div>
+
+      {isLoading ? <p className="loadingMessage">Cargando...</p> : null}
+
       <div className="yourproject-container">
         <ProjectPreview project={project} />
       </div>

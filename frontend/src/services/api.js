@@ -1,14 +1,27 @@
 export const getProjects = () => {
     return fetch("http://localhost:3000/projects")
-        .then((response) => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then((data) => {
             return data;
+        })
+        .catch ((error) => {
+            throw error;
         })
 };
 
 export const getProjectById = (id) => {
         return fetch(`http://localhost:3000/project/${id}`)
-        .then((response) => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+        })
         .then((data) => {
             const cleanData = data.map((item) => {
                 return {
@@ -29,6 +42,9 @@ export const getProjectById = (id) => {
 
             return cleanData[0];
         })
+        .catch ((error) => {
+            throw error;
+        })
 };
 
 export const addProjects = (data) => {
@@ -39,8 +55,16 @@ export const addProjects = (data) => {
         },
         body: JSON.stringify(data),
     })
-        .then((response) => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+        })
         .then(() => {
             return;
+        })
+        .catch ((error) => {
+            throw error;
         })
 };

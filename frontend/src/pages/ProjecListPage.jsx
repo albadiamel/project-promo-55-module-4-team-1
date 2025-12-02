@@ -10,10 +10,19 @@ import "../styles/project-preview.css";
 
 const ProjecListPage = () => {
   const [projects, setProjects] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
+        
     getProjects().then(data => {
       setProjects(data);
+      setIsLoading(false);
+    })
+    
+    .catch (() => {
+      window.alert("Algo ha ido mal");
+      setIsLoading(false);
     })
   }, []);
 
@@ -25,6 +34,9 @@ const ProjecListPage = () => {
       <div className="button-container">
         <Buttons to="/" text="Nuevo proyecto"/>
       </div>
+      
+      {isLoading ? <p className="loadingMessage">Cargando...</p> : null}
+      
       <ListComponent projects={projects}/>
       <Footer />
     </>
