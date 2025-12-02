@@ -21,7 +21,7 @@ app.listen(port, () => {
 // ENDPOINT PARA COGER LOS PROYECTOS
 app.get("/projects", getProjectsController);
 app.get("/project/:id", getProjectByIdController);
-app.post("/add-project", addProjectsController);
+app.post("/project", addProjectsController);
 
 
 

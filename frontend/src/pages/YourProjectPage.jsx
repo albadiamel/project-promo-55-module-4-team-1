@@ -4,7 +4,7 @@ import { getProjectById } from "../services/api";
 import ProjectPreview from "../components/ProjectPreview";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Buttons from "../components/Buttons";
+import Button from "../components/Button";
 import PropTypes from "prop-types";
 import "../styles/project-preview.css";
 import "../styles/your-project.css";
@@ -33,10 +33,10 @@ const YourProjectPage = () => {
     <>
       <Header />
       <div className="button-container">
-        <Buttons to="/project-list" text="Ver Proyectos"/>
+        <Button to="/project-list" text="Ver Proyectos"/>
       </div>
 
-      {isLoading ? <p className="loadingMessage">Cargando...</p> : null}
+      {isLoading ? <p className="loading-message">Cargando...</p> : null}
 
       <div className="yourproject-container">
         <ProjectPreview project={project} />

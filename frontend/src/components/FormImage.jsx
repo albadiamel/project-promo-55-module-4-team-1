@@ -1,4 +1,4 @@
-import React from "react";
+import "react";
 import PropTypes from "prop-types";
 import "../styles/form-image.css";
 
@@ -8,10 +8,7 @@ const FormImage = ({ updateFormData, errors }) => {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        updateFormData((prev) => ({
-          ...prev,
-          [type]: reader.result,
-        }));
+        updateFormData(type, reader.result);
       };
       reader.readAsDataURL(file);
     }

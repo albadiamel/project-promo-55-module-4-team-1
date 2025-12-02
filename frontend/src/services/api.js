@@ -48,7 +48,7 @@ export const getProjectById = (id) => {
 };
 
 export const addProjects = (data) => {
-    return fetch("http://localhost:3000/add-project", {
+    return fetch("http://localhost:3000/project", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

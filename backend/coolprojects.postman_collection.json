@@ -34,21 +34,21 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/project/2",
+					"raw": "localhost:3000/project/3",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"project",
-						"2"
+						"3"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "POST /add-project",
+			"name": "POST /project",
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -65,13 +65,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/add-project",
+					"raw": "localhost:3000/project",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"add-project"
+						"project"
 					]
 				}
 			},

@@ -1,29 +1,14 @@
 import "react";
-import defaultProject from "../images/project.jpg";
-import defaultAuthor from "../images/author.png";
 import PropTypes from "prop-types";
 
-const Reset = ({ updateFormData }) => {
-  const handleChangeReset = () => {
-    updateFormData({
-      nameProj: "",
-      slogan: "",
-      repo: "",
-      demo: "",
-      techs: "",
-      description: "",
-      owner: "",
-      jobTitle: "",
-      projectImage: defaultProject,
-      authorImage: defaultAuthor,
-    });
-  };
-
-  return <button onClick={handleChangeReset}>Limpiar formulario</button>;
+const Reset = ({ updateFormData, resetFormData }) => {
+  updateFormData();
+  return <button onClick={resetFormData}>Limpiar formulario</button>;
 };
 
 Reset.propTypes = {
-  setFormData: PropTypes.func.isRequired,
+  updateFormData: PropTypes.func.isRequired,
+  resetFormData: PropTypes.func.isRequired,
 };
 
 export default Reset;

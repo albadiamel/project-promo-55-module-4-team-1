@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getProjects } from "../services/api";
 import ListComponent from "../components/ListComponent";
 import Header from "../components/Header";
-import Buttons from "../components/Buttons";
+import Button from "../components/Button";
 import Footer from "../components/Footer";
 import "../styles/list-item-component.css";
 import "../styles/project-preview.css";
@@ -32,10 +32,10 @@ const ProjecListPage = () => {
     <>
       <Header />
       <div className="button-container">
-        <Buttons to="/" text="Nuevo proyecto"/>
+        <Button to="/" text="Nuevo proyecto"/>
       </div>
       
-      {isLoading ? <p className="loadingMessage">Cargando...</p> : null}
+      {isLoading ? <p className="loading-message">Cargando...</p> : null}
       
       <ListComponent projects={projects}/>
       <Footer />

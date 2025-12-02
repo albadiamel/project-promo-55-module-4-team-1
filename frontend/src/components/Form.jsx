@@ -4,7 +4,7 @@ import FormTextInputs from "./FormTextInputs";
 import FormImage from "./FormImage";
 import Reset from "../components/Reset";
 
-const Form = ({ formData, updateFormData, addProjects }) => {
+const Form = ({ formData, updateFormData, addProjects, resetFormData }) => {
   const [errors, setErrors] = useState({});
 
   const [globalError, setGlobalError] = useState("");
@@ -36,11 +36,6 @@ const Form = ({ formData, updateFormData, addProjects }) => {
     if (isValid) addProjects();
     };
 
-
-    // const storedProjects = ls.get("projects", []);
-    // const updatedProjects = [...storedProjects, newProject];
-    // ls.set("projects", updatedProjects);
-
   return (
     <div className="form__inputs">
       <FormTextInputs
@@ -54,7 +49,7 @@ const Form = ({ formData, updateFormData, addProjects }) => {
         errors={errors}
       />
       <div className="button-container">
-        <Reset updateFormData={updateFormData} />
+        <Reset updateFormData={updateFormData} resetFormData={resetFormData}/>
         <button onClick={handleCreateProject}>Crea tu proyecto</button>
       </div>
 
@@ -78,7 +73,8 @@ Form.propTypes = {
     job: PropTypes.string,
     image: PropTypes.string.isRequired,
   }).isRequired,
-  setFormData: PropTypes.func.isRequired,
+  updateFormData: PropTypes.func.isRequired,
+  resetFormData: PropTypes.func.isRequired,
 };
 
 export default Form;

@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { addProjects } from "../services/api"
 import Form from "../components/Form";
 import Header from "../components/Header";
+import ProjectPreview from "../components/ProjectPreview";
 import Footer from "../components/Footer";
-import Buttons from "../components/Buttons";
+import Button from "../components/Button";
 import defaultProject from "../images/project.jpg";
 import defaultAuthor from "../images/author.png";
-import ProjectPreview from "../components/ProjectPreview";
 import "../index.css";
 
 const HomePage = () => {
@@ -26,6 +26,22 @@ const HomePage = () => {
 
   const navigate = useNavigate();
 
+  const initialForm = {
+    nameProj: "",
+    slogan: "",
+    repo: "",
+    demo: "",
+    techs: "",
+    description: "",
+    owner: "",
+    jobTitle: "",
+    projectImage: defaultProject,
+    authorImage: defaultAuthor,
+  }; 
+
+  const resetFormData = () => setFormData(initialForm);
+
+
   const updateFormData = (key, value) => {
     setFormData((currentState) => ({
       ...currentState,
@@ -43,11 +59,11 @@ const HomePage = () => {
     <>
       <Header />
       <div className="button-container">
-        <Buttons to="/project-list" text="Ver Proyectos"/>
+        <Button to="/project-list" text="Ver Proyectos"/>
       </div>
       <div className="data-container">
         <ProjectPreview project={formData} />
-        <Form formData={formData} addProjects={createProjects} updateFormData={updateFormData} />
+        <Form formData={formData} addProjects={createProjects} updateFormData={updateFormData} resetFormData={resetFormData}/>
       </div>
       <Footer />
     </>

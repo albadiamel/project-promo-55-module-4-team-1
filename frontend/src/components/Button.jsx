@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "../styles/buttons.css";
 
-const Buttons = ({ to, text }) => {
+const Button = ({ to, text }) => {
   return (
     <>
       <Link to={to}>
@@ -13,9 +13,9 @@ const Buttons = ({ to, text }) => {
   );
 };
 
-Buttons.propTypes = {
+Button.propTypes = {
   to: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
 };
 
-export default Buttons;
+export default Button;
