@@ -11,22 +11,7 @@ import defaultAuthor from "../images/author.png";
 import "../index.css";
 
 const HomePage = () => {
-  const [formData, setFormData] = useState({
-    nameProj: "",
-    slogan: "",
-    repo: "",
-    demo: "",
-    techs: "",
-    description: "",
-    owner: "",
-    jobTitle: "",
-    projectImage: defaultProject,
-    authorImage: defaultAuthor,
-  });
-
-  const navigate = useNavigate();
-
-  const initialForm = {
+    const initialForm = {
     nameProj: "",
     slogan: "",
     repo: "",
@@ -38,6 +23,9 @@ const HomePage = () => {
     projectImage: defaultProject,
     authorImage: defaultAuthor,
   }; 
+  const [formData, setFormData] = useState(initialForm);
+
+  const navigate = useNavigate();
 
   const resetFormData = () => setFormData(initialForm);
 

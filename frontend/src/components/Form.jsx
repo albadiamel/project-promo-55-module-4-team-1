@@ -49,7 +49,7 @@ const Form = ({ formData, updateFormData, addProjects, resetFormData }) => {
         errors={errors}
       />
       <div className="button-container">
-        <Reset updateFormData={updateFormData} resetFormData={resetFormData}/>
+        <Reset resetFormData={resetFormData}/>
         <button onClick={handleCreateProject}>Crea tu proyecto</button>
       </div>
 
