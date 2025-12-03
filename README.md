@@ -1,33 +1,33 @@
-<p align="center"> <img src="/frontend/src/images/banner.png" alt="Texto alternativo" width="300"/> </p>
+<p align="center"> <img src="/frontend/src/images/banner.png" alt="Texto alternativo" width="500"/> </p>
 
 **Proyectos Molones** es una aplicación web full-stack que permite a las desarrolladoras crear y compartir tarjetas de sus proyectos de manera visual y atractiva. Cada tarjeta incluye información del proyecto, tecnologías utilizadas, enlaces al repositorio y demo, además de los datos de la autora.
 
 ## Características principales
 
-**• Creación de proyectos:** formulario intuitivo para añadir toda la información
-**• Subida de imágenes:** para el proyecto y la autora
-**• Vista previa en tiempo real:** visualiza cómo quedará tu tarjeta mientras la editas
-**• Diseño responsive:** adaptado a móvil, tablet y desktop
-**• Listado de proyectos:** explora todos los proyectos publicados
-**• Enlaces directos:** acceso rápido al repositorio de GitHub y demo del proyecto
+- **Creación de proyectos:** formulario intuitivo para añadir toda la información
+- **Subida de imágenes:** para el proyecto y la autora
+- **Vista previa en tiempo real:** visualiza cómo quedará tu tarjeta mientras la editas
+- **Diseño responsive:** adaptado a móvil, tablet y desktop
+- **Listado de proyectos:** explora todos los proyectos publicados
+- **Enlaces directos:** acceso rápido al repositorio de GitHub y demo del proyecto
 
 ## Tecnologías
 
 ### Frontend
 
-**• React 19.1.1** - Biblioteca de JavaScript para construir interfaces de usuario
-**• React Router DOM 7.9.4** - Navegación entre páginas
-**• Vite 7.1.7** - Build tool y dev server ultrarrápido
-**• PropTypes** - Validación de tipos en React
-**• CSS3** - Estilos personalizados con diseño responsive
+- **React 19.1.1** - Biblioteca de JavaScript para construir interfaces de usuario
+- **React Router DOM 7.9.4** - Navegación entre páginas
+- **Vite 7.1.7** - Build tool y dev server ultrarrápido
+- **PropTypes** - Validación de tipos en React
+- **CSS3** - Estilos personalizados con diseño responsive
 
 ### Backend
 
-**• Node.js** - Entorno de ejecución de JavaScript
-**• Express 5.1.0** - Framework web para Node.js
-**• MySQL2 3.15.3** - Cliente MySQL para Node.js
-**• CORS** - Gestión de peticiones cross-origin
-**• dotenv** - Variables de entorno
+- **Node.js** - Entorno de ejecución de JavaScript
+- **Express 5.1.0** - Framework web para Node.js
+- **MySQL2 3.15.3** - Cliente MySQL para Node.js
+- **CORS** - Gestión de peticiones cross-origin
+- **dotenv** - Variables de entorno
 
 ## Uso
 
