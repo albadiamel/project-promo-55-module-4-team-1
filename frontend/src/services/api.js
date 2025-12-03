@@ -1,6 +1,6 @@
 export const getProjects = () => {
-    return fetch("http://localhost:3000/projects")
-        .then(response => {
+    return fetch("/api/projects")
+        .then((response) => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -9,18 +9,18 @@ export const getProjects = () => {
         .then((data) => {
             return data;
         })
-        .catch ((error) => {
+        .catch((error) => {
             throw error;
-        })
+        });
 };
 
 export const getProjectById = (id) => {
-        return fetch(`http://localhost:3000/project/${id}`)
-        .then(response => {
+    return fetch(`/api/project/${id}`)
+        .then((response) => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
+            }
+            return response.json();
         })
         .then((data) => {
             const cleanData = data.map((item) => {
@@ -36,35 +36,35 @@ export const getProjectById = (id) => {
                     id_author: item.id_author,
                     owner: item.owner,
                     jobTitle: item.jobTitle,
-                    authorImage: item.authorImage
+                    authorImage: item.authorImage,
                 };
             });
 
             return cleanData[0];
         })
-        .catch ((error) => {
+        .catch((error) => {
             throw error;
-        })
+        });
 };
 
 export const addProjects = (data) => {
-    return fetch("http://localhost:3000/project", {
+    return fetch("/api/project", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
     })
-        .then(response => {
+        .then((response) => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
+            }
+            return response.json();
         })
         .then(() => {
             return;
         })
-        .catch ((error) => {
+        .catch((error) => {
             throw error;
-        })
+        });
 };

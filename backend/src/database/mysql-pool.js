@@ -2,10 +2,14 @@ const mysql = require("mysql2/promise");
 
 const getConnection = async () => {
     const connection = await mysql.createConnection({
-        host: "localhost",
-        database: "coolprojects",
-        user: process.env.USER_WORKBENCH,
-        password: process.env.PASSWORD_WORKBENCH,
+        host: process.env.DB_HOST,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_NAME,
+        port: process.env.DB_PORT,
+        ssl: {
+            ca: fs.readFileSync(__dirname + "/certs/ca.pem"), // ruta a tu certificado
+        },
     });
     await connection.connect();
 

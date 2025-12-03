@@ -1,8 +1,13 @@
 const express = require("express");
 const cors = require("cors");
-const { getProjectsController, getProjectByIdController, addProjectsController } = require("./controllers");
+const path = require("path");
+const {
+    getProjectsController,
+    getProjectByIdController,
+    addProjectsController,
+} = require("./controllers");
 const app = express();
-const port = 3000;
+const PORT = process.env.DB_PORT || 3000;
 
 require("dotenv").config();
 
@@ -10,18 +15,22 @@ require("dotenv").config();
 app.use(express.json({ limit: "25mb" }));
 // Para evitar errores de diferente origen cuando se hace la petición
 app.use(cors());
+// Ruta a los archivos estáticos del build
+app.use(express.static(path.join(__dirname, "..", "public")));
 
 // Configuración para escuchar en el puerto definido
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+app.listen(PORT, () => {
+    console.log(`Example app listening on port ${PORT}`);
 });
 
 // Endpoints
 
 // ENDPOINT PARA COGER LOS PROYECTOS
-app.get("/projects", getProjectsController);
-app.get("/project/:id", getProjectByIdController);
-app.post("/project", addProjectsController);
+app.get("/api/projects", getProjectsController);
+app.get("/api/project/:id", getProjectByIdController);
+app.post("/api/project", addProjectsController);
 
-
-
+// Cualquier ruta del frontend → index.html
+app.use((req, res) => {
+    res.sendFile(path.join(__dirname, "..", "public", "index.html"));
+});
