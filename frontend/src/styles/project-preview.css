@@ -240,8 +240,53 @@
     }
 }
 
-/* TABLET */
-@media (min-width: 768px) {
+/* TABLET VERTICAL */
+@media (min-width: 768px) and (max-width: 900px) {
+    .project-preview__container {
+        max-width: 600px;
+    }
+
+    .project__card-preview {
+        max-width: 550px;
+        min-height: 300px;
+        padding: 25px;
+        bottom: 0;
+        top: 380px;
+    }
+
+    .project-photo {
+        height: 400px;
+        max-width: 600px;
+    }
+
+    .photo-column {
+        width: 140px;
+    }
+
+    .owner-photo {
+        height: 110px;
+        width: 110px;
+    }
+
+    .nameProj {
+        font-size: 18px;
+    }
+
+    .slogan {
+        font-size: 14px;
+    }
+
+    .description {
+        font-size: 12px;
+    }
+
+    .techs {
+        font-size: 13px;
+    }
+}
+
+/* TABLET HORIZONTAL Y DESKTOP */
+@media (min-width: 901px) {
     .project__card-preview {
         bottom: 0;
         top: 320px;
