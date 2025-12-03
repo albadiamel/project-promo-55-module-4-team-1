@@ -61,4 +61,5 @@ Proyecto desarrollado por el **Equipo 1 de la Promoción 55 - Módulo 4** de Ada
 
 **Hecho con 💜**
 
+**Documentación de la API**
 https://app.swaggerhub.com/apis/fnix/CoolProjects/1.0
